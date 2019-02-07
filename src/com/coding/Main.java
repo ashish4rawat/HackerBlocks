@@ -21,21 +21,39 @@ public class Main {
                 a[i] = scanner.nextInt();
             }
 
-            int[] mem = new int[a.length+1];
-            mem[0] = a[0];
-            int max = a[0];
+
+            int l = 0,r = 0;
+            int sum = a[l] ;
+            int flaf = 0;
 
 
-            for (int i = 1; i < a.length; i++) {
 
-                mem[i] = Math.max(mem[i-1]+a[i],a[i]);
-                if(mem[i]>max){
-                    max = mem[i];
+            while (l<a.length && r<a.length  ){
+                if(sum<k && r+1<a.length){
+                    sum+= a[r+1];
+                    r++;
+                }else if(sum>k ){
+                    sum-= a[l];
+                    l++;
+                }else if(sum==k){
+                    System.out.println(String.valueOf(l+1)+" "+String.valueOf(r+1));
+                    flaf = 1;
+                    break;
+                }else {
+                    break;
                 }
-
             }
 
-            System.out.println(max);
+            for (int i = 0; i <a.length ; i++) {
+                if(a[i]==k){
+                    System.out.println(String.valueOf(i+1)+" "+String.valueOf(i+1));
+                    flaf=1;
+                }
+            }
+
+            if(flaf==0)
+                System.out.println(-1);
+
 
         }
 
