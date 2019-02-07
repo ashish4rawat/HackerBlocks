@@ -20,34 +20,36 @@ public class Main {
                 a[i] = scanner.nextInt();
             }
 
-            int low = 0 , mid = 0 , high = n-1;
+            int[]  mem = new int[n];
+            System.out.println(maxSum(0,a,mem,0));
 
-            while (mid<high){
-
-                if(a[mid]==0){
-                    swap(mid,low,a);
-                    low++;
-                    mid++;
-                }else if(a[mid]==1){
-                    mid++;
-                }else if(a[mid]==2){
-                    swap(mid,high,a);
-                    high--;
-                }
-
-            }
-
-            for (int i = 0; i <n ; i++) {
-                System.out.print(a[i]+" ");
-            }
 
         }
 
     }
 
-    private static void swap(int x, int y, int[] a) {
-        int temp = a[x];
-        a[x] = a[y];
-        a[y] = temp;
+    private static int maxSum(int i, int[] a, int[] mem, int max) {
+
+        if(i==a.length){
+            return 0;
+        }
+
+
+        if(mem[i]!=0){
+            return mem[i];
+        }
+
+
+        int accept=0,reject;
+        if(a[i]>max){
+            accept = a[i]+maxSum(i+1,a,mem,a[i]);
+        }
+        reject = maxSum(i+1,a,mem,max);
+
+        mem[i] = Math.max(accept,reject);
+
+        return mem[i];
     }
+
+
 }
