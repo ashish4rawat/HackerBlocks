@@ -2,7 +2,7 @@ package com.coding;
 
 import java.util.Scanner;
 
-public class Main {
+public class Pattern {
 
     public static void main(String[] args) {
 	// write your code here
@@ -15,19 +15,21 @@ public class Main {
 
 
 
-            for (int j = 0; j < n-i-1; j++) {
+            for (int j = 0; j < n/2-k; j++) {
                 System.out.print("$");
             }
 
-            for (int j = 0; j < i+1; j++) {
-                System.out.print("#");
-            }
-
-            for (int j = 0; j < i; j++) {
+            for (int j = 0; j < 2*k+1; j++) {
                 System.out.print("#");
             }
 
 
+
+
+            if(i<n/2)
+                k++;
+            else
+                k--;
 
 
             
