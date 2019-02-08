@@ -1,7 +1,6 @@
 package com.coding;
 
-import java.util.HashSet;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -20,36 +19,17 @@ public class Main {
                 a[i] = scanner.nextInt();
             }
 
-            int[]  mem = new int[n];
-            System.out.println(maxSum(0,a,mem,0));
-
+Float f = new Float("34");
 
         }
 
     }
 
-    private static int maxSum(int i, int[] a, int[] mem, int max) {
-
-        if(i==a.length){
-            return 0;
-        }
 
 
-        if(mem[i]!=0){
-            return mem[i];
-        }
 
-
-        int accept=0,reject;
-        if(a[i]>max){
-            accept = a[i]+maxSum(i+1,a,mem,a[i]);
-        }
-        reject = maxSum(i+1,a,mem,max);
-
-        mem[i] = Math.max(accept,reject);
-
-        return mem[i];
-    }
 
 
 }
+
+
