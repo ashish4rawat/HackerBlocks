@@ -14,28 +14,51 @@ public class Main {
 
             String s = scanner.nextLine();
 
-            Stack<String> stack = new Stack<>();
-            StringBuilder sb = new StringBuilder();
+            //for odd
+            int max = 1;
+            String global = s.charAt(0)+"";
+            for (int i = 0; i < s.length() ; i++) {
 
-            for (int i = 0; i <s.length() ; i++) {
-                char ch = s.charAt(i);
-                if(ch=='.'){
-                    stack.push(sb.toString());
-                    stack.push(".");
-                    sb = new StringBuilder();
-                }else {
-                    sb.append(ch);
+                int low = i-1,high = i+1;
+                String maximum = s.charAt(i)+"";
+
+                while (low>=0 && high<s.length()){
+                    if(s.charAt(low) ==  s.charAt(high)){
+                        maximum = s.charAt(low) + maximum + s.charAt(high);
+                        low--;
+                        high++;
+                    }else {
+                        break;
+                    }
+                }
+
+                if(maximum.length() > global.length()){
+                    global =  maximum;
                 }
 
 
-            }
+                low = i;
+                high=i+1;
+                maximum = "";
 
-            stack.push(sb.toString());
 
-            while (!stack.isEmpty()){
-                System.out.print(stack.pop());
+                while (low>=0 && high<s.length()){
+                    if(s.charAt(low) ==  s.charAt(high)){
+                        maximum = s.charAt(low) + maximum + s.charAt(high);
+                        low--;
+                        high++;
+                    }else {
+                        break;
+                    }
+                }
+
+                if(maximum.length() > global.length()){
+                    global =  maximum;
+                }
+
             }
-            System.out.println();
+            System.out.println(global);
+
 
         }
 
