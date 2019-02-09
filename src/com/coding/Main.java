@@ -14,47 +14,34 @@ public class Main {
 
             String s = scanner.nextLine();
 
-            System.out.println(getStatus(s));
+            Stack<String> stack = new Stack<>();
+            StringBuilder sb = new StringBuilder();
 
+            for (int i = 0; i <s.length() ; i++) {
+                char ch = s.charAt(i);
+                if(ch=='.'){
+                    stack.push(sb.toString());
+                    stack.push(".");
+                    sb = new StringBuilder();
+                }else {
+                    sb.append(ch);
+                }
+
+
+            }
+
+            stack.push(sb.toString());
+
+            while (!stack.isEmpty()){
+                System.out.print(stack.pop());
+            }
+            System.out.println();
 
         }
 
     }
 
-    private static String getStatus(String s) {
 
-        Stack<Character> stack = new Stack<>();
-
-        for (int j = 0; j <s.length() ; j++) {
-
-            char ch = s.charAt(j);
-
-            if(ch=='{' || ch=='[' || ch=='(') {
-                stack.push(ch);
-            }
-            else if(stack.size()>0){
-                char ch1 = stack.pop();
-                if(ch==']' && ch1!='[')
-                    return "not balanced";
-                if(ch=='}' && ch1!='{')
-                    return "not balanced";
-                if(ch==')' && ch1!='(')
-                    return "not balanced";
-            }
-            else {
-                return "not balanced";
-            }
-
-        }
-
-        if(stack.isEmpty())
-            return "balanced";
-        else
-            return "not balanced";
-
-
-
-    }
 
 
 }
