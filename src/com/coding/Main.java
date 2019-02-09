@@ -12,59 +12,33 @@ public class Main {
         int t = Integer.parseInt(T);
         for (int h = 0; h <t ; h++) {
 
-            String s = scanner.nextLine();
+            String A = scanner.next();
+            String B = scanner.next();
 
-            //for odd
-            int max = 1;
-            String global = s.charAt(0)+"";
-            for (int i = 0; i < s.length() ; i++) {
 
-                int low = i-1,high = i+1;
-                String maximum = s.charAt(i)+"";
+            String a = scanner.next();
+            String b = scanner.next();
 
-                while (low>=0 && high<s.length()){
-                    if(s.charAt(low) ==  s.charAt(high)){
-                        maximum = s.charAt(low) + maximum + s.charAt(high);
-                        low--;
-                        high++;
-                    }else {
-                        break;
+            int[][] mem = new int[a.length()+1][b.length()+1];
+            int max = Integer.MIN_VALUE;
+
+            for (int i = 0; i < a.length(); i++) {
+                for (int j = 0; j < b.length(); j++) {
+
+                    if(a.charAt(i) == b.charAt(j)){
+                        mem[i+1][j+1]  =  mem[i][j] + 1;
                     }
+                    if(mem[i+1][j+1] > max)
+                        max = mem[i+1][j+1];
+
                 }
-
-                if(maximum.length() > global.length()){
-                    global =  maximum;
-                }
-
-
-                low = i;
-                high=i+1;
-                maximum = "";
-
-
-                while (low>=0 && high<s.length()){
-                    if(s.charAt(low) ==  s.charAt(high)){
-                        maximum = s.charAt(low) + maximum + s.charAt(high);
-                        low--;
-                        high++;
-                    }else {
-                        break;
-                    }
-                }
-
-                if(maximum.length() > global.length()){
-                    global =  maximum;
-                }
-
             }
-            System.out.println(global);
 
+            System.out.println(max);
 
         }
 
     }
-
-
 
 
 }
