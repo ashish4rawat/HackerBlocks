@@ -8,26 +8,53 @@ public class Main {
 	// write your code here
 
         Scanner scanner = new Scanner(System.in);
-        int T = scanner.nextInt();
-        for (int h = 0; h <T ; h++) {
+        String T = scanner.nextLine();
+        int t = Integer.parseInt(T);
+        for (int h = 0; h <t ; h++) {
 
-            int n= scanner.nextInt();
+            String s = scanner.nextLine();
 
-            int[] a = new int[n];
+            System.out.println(getStatus(s));
 
-            for (int i = 0; i <n ; i++) {
-                a[i] = scanner.nextInt();
-            }
-
-Float f = new Float("34");
 
         }
 
     }
 
+    private static String getStatus(String s) {
+
+        Stack<Character> stack = new Stack<>();
+
+        for (int j = 0; j <s.length() ; j++) {
+
+            char ch = s.charAt(j);
+
+            if(ch=='{' || ch=='[' || ch=='(') {
+                stack.push(ch);
+            }
+            else if(stack.size()>0){
+                char ch1 = stack.pop();
+                if(ch==']' && ch1!='[')
+                    return "not balanced";
+                if(ch=='}' && ch1!='{')
+                    return "not balanced";
+                if(ch==')' && ch1!='(')
+                    return "not balanced";
+            }
+            else {
+                return "not balanced";
+            }
+
+        }
+
+        if(stack.isEmpty())
+            return "balanced";
+        else
+            return "not balanced";
 
 
 
+    }
 
 
 }
