@@ -12,30 +12,48 @@ public class Main {
         int t = Integer.parseInt(T);
         for (int h = 0; h <t ; h++) {
 
-            String s = scanner.nextLine();
-            int[] hash = new int[256];
+            String str = scanner.nextLine();
+            for (int i = 0; i <str.length() ; i++) {
+                char ch = str.charAt(i);
 
-
-
-            for (int i = 0; i <s.length() ; i++) {
-                hash[s.charAt(i)] = -1;
-            }
-
-            for (int i = 0; i < s.length() ; i++) {
-
-                if(hash[s.charAt(i)]==-1){
-                    System.out.print(s.charAt(i));
-                    hash[s.charAt(i)] = i;
-                }
 
             }
-
-            System.out.println();
 
 
         }
 
+    }
 
+
+    int atoi(String str)
+    {
+        int num = 0,digit=0,flag = 0;
+        // Your code here
+        for (int i = 0; i <str.length() ; i++) {
+
+
+            char ch = str.charAt(i);
+
+            if(i==0 && ch=='-'){
+                flag=1;
+                continue;
+            }
+
+            if(ch>='0' && ch<='9'){
+                digit = ch-'0';
+
+            }else {
+                return -1;
+            }
+
+            num = num*10 +digit  ;
+
+        }
+
+        if(flag==1){
+            return -num;
+        }
+        return num;
     }
 
 
