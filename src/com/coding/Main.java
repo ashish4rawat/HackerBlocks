@@ -17,16 +17,53 @@ public class Main {
 
             String[] strings = new String[n];
 
+
+            int min = Integer.MAX_VALUE;
             for (int i = 0; i <n ; i++) {
                 strings[i] = scanner.next();
+                min = Math.min(min,strings[i].length());
             }
 
-
+            String pre = kar(strings,min);
+            if(pre.length()==0)
+                System.out.println(-1);
+            else
+                System.out.println(pre);
 
 
         }
 
     }
+
+    private static String kar(String[] strings,int min) {
+
+
+
+        String prefix  = "";
+
+        for (int i = 0; i <min ; i++) {
+            for (int j = 1; j < strings.length ; j++) {
+
+                if(strings[0].charAt(i)!=strings[j].charAt(i)){
+
+                    return prefix;
+
+                }
+
+            }
+
+            prefix= prefix + strings[0].charAt(i);
+        }
+
+        return prefix;
+    }
+
+
+
+
+
+
+
 
     private static int check(String str, String pattern) {
 
