@@ -12,49 +12,59 @@ public class Main {
         int t = Integer.parseInt(T);
         for (int h = 0; h <t ; h++) {
 
-            String str = scanner.nextLine();
-            for (int i = 0; i <str.length() ; i++) {
-                char ch = str.charAt(i);
+            String N = scanner.next();
+            int n = Integer.parseInt(N);
 
+            String[] strings = new String[n];
 
+            for (int i = 0; i <n ; i++) {
+                strings[i] = scanner.next();
             }
+
+
 
 
         }
 
     }
 
+    private static int check(String str, String pattern) {
 
-    int atoi(String str)
-    {
-        int num = 0,digit=0,flag = 0;
-        // Your code here
-        for (int i = 0; i <str.length() ; i++) {
+        if(pattern.length()>str.length())
+            return -1;
 
+        int sum = 0;
+        int cursum = 0;
+        for (int i = 0; i <pattern.length() ; i++) {
 
-            char ch = str.charAt(i);
-
-            if(i==0 && ch=='-'){
-                flag=1;
-                continue;
-            }
-
-            if(ch>='0' && ch<='9'){
-                digit = ch-'0';
-
-            }else {
-                return -1;
-            }
-
-            num = num*10 +digit  ;
+            sum += pattern.charAt(i);
+            cursum += str.charAt(i);
 
         }
 
-        if(flag==1){
-            return -num;
+        for (int i = pattern.length()-1; i <str.length() ; i++) {
+
+            if(cursum==sum){
+
+                String prev = str.substring(i-pattern.length()+1 , i+1);
+                if(prev.equals(pattern))
+                    return i - pattern.length() + 1;
+
+            }
+
+            if(i+1<str.length())
+                cursum += str.charAt(i+1);
+
+            cursum -= str.charAt(i-pattern.length()+1);
+
+
         }
-        return num;
+
+
+        return -1;
     }
+
+
 
 
 }
