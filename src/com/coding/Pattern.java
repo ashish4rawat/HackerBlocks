@@ -6,8 +6,12 @@ public class Pattern {
 
     public static void main(String[] args) {
 	// write your code here
-        Scanner scanner = new Scanner(System.in);
-        int n= scanner.nextInt();
+        long a = 34;
+        double ab = 34.0;
+        System.out.println(a==ab);
+
+        int n=0;
+
 
 
         int k = 0;
