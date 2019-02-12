@@ -12,27 +12,30 @@ class gfg
 
     // This function should reverse linked list and return
     // head of the modified linked list.
+    public Node newHead = null;
     Node reverse(Node head)
     {
         // add code here
 
         reverseMy(head);
 
-        Node node = head;
-        while (node.next!=null){
-            node = node.next;
-        }
-        return node;
+
+
+        return newHead;
     }
 
     private Node reverseMy(Node curNode) {
 
         if(curNode.next==null){
+            newHead = curNode;
             return curNode;
         }
 
         Node n = reverseMy(curNode.next);
         n.next = curNode;
+        curNode.next = null;
+
         return curNode;
     }
+
 }
