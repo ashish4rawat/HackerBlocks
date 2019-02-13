@@ -1,41 +1,37 @@
 package com.coding;
 
+import java.util.HashSet;
+
 class Node {
-    int value;
+   int data;
     Node next;
-    Node(int value) {
-        this.value = value;
-    }
+    Node(int d)  { data = d;  next = null; }
 }
-class gfg
+
+class GFG
 {
-
-    // This function should reverse linked list and return
-    // head of the modified linked list.
-    public Node newHead = null;
-    Node reverse(Node head)
+    int intersectPoint(Node headA, Node headB)
     {
-        // add code here
+        // code here
+        HashSet<Integer> set = new HashSet<>();
 
-        reverseMy(head);
+        while (headA!=null){
+            set.add(headA.data);
+            headA = headA.next;
+        }
+        while (headB!=null){
+            if(set.contains(headB.data)){
+                return headB.data;
+            }
 
-
-
-        return newHead;
-    }
-
-    private Node reverseMy(Node curNode) {
-
-        if(curNode.next==null){
-            newHead = curNode;
-            return curNode;
+            headB = headB.next;
         }
 
-        Node n = reverseMy(curNode.next);
-        n.next = curNode;
-        curNode.next = null;
+        return -1;
 
-        return curNode;
+
+
+
     }
 
 }
