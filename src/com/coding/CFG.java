@@ -34,4 +34,29 @@ class GFG
 
     }
 
+    public static void removeTheLoop(Node head)
+    {
+        //Your code here
+
+
+        Node pre = null;
+        Node node = head;
+
+        HashSet<Node> set = new HashSet<>();
+        while (node!=null){
+
+            if(set.contains(node)){
+                pre.next = null;
+                break;
+            }
+
+            set.add(node);
+            pre = node;
+            node = node.next;
+
+        }
+
+
+    }
+
 }
