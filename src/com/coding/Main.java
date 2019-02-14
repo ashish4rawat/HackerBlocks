@@ -7,6 +7,10 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
 
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(0,54);
+        list.add(3,54);
+
         Scanner scanner = new Scanner(System.in);
         String T = scanner.nextLine();
         int t = Integer.parseInt(T);
@@ -23,7 +27,6 @@ public class Main {
                 strings[i] = scanner.next();
                 min = Math.min(min,strings[i].length());
             }
-
 
 
         }
