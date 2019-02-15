@@ -53,8 +53,10 @@ class GfG
             return true;
         }
 
-        if(node1!=null &)
-
+        if(node1!=null && node2!=null && node1.data==node2.data)
+            return isIdentical(node1.left,node2.left) && isIdentical(node1.right,node2.right);
+        else
+            return false;
 
     }
 
