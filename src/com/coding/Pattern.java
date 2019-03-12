@@ -1,46 +1,67 @@
 package com.coding;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Pattern {
 
     public static void main(String[] args) {
-	// write your code here
-        long a = 34;
-        double ab = 34.0;
-        System.out.println(a==ab);
-
-        int n=0;
+        // write your code here
 
 
 
-        int k = 0;
-        for (int i = 0; i <n ; i++) {
+        Scanner scanner = new Scanner(System.in);
+        String T = scanner.nextLine();
+        int t = Integer.parseInt(T);
+        for (int h = 0; h <t ; h++) {
+
+            int n= scanner.nextInt();
+
+            int[] A = new int[n];
 
 
-
-            for (int j = 0; j < n/2-k; j++) {
-                System.out.print("$");
+            HashMap<Integer,Integer> map = new HashMap<>();
+            for (int i = 0; i <n ; i++) {
+                A[i] = scanner.nextInt();
             }
 
-            for (int j = 0; j < 2*k+1; j++) {
-                System.out.print("#");
+            int k= scanner.nextInt();
+            for (int i = 0; i <n ; i++) {
+                A[i] = A[i] % k;
+
+                if(map.containsKey(A[i])){
+                    map.put(A[i],map.get(A[i])+1);
+                }else {
+                    map.put(A[i],1);
+                }
+
+
             }
 
 
+            System.out.println(take(A,map,k));
 
 
-            if(i<n/2)
-                k++;
-            else
-                k--;
 
 
-            
-            System.out.println();
+
+
+
+
+
+
+
+
         }
 
-        
-
     }
+
+    private static boolean take(int[] A,HashMap<Integer, Integer> map,int k) {
+        for (int key:map.keySet()) {
+
+
+
+        }
+        return true;
+    }
+
 }
