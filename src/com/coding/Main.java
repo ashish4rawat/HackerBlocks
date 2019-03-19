@@ -16,23 +16,21 @@ public class Main {
 
             int n= scanner.nextInt();
 
+
+
+
+
             int[] A = new int[n];
 
 
-            HashMap<Integer,Integer> map = new HashMap<>();
-
-
-            for (int i = 0; i <n ; i++) {
+            for (int i = 0; i < A.length; i++) {
                 A[i] = scanner.nextInt();
-
-                if(map.containsKey(A[i])){
-                    map.put(A[i],map.get(A[i])+1);
-                }else {
-                map.put(A[i],1);
-
             }
 
-            int k= scanner.nextInt();
+            int[][] mem = new int[A.length][A.length];
+
+            System.out.println(take(-1,0,A,0,mem));
+
 
 
 
@@ -40,6 +38,31 @@ public class Main {
 
 
         }
+
+
+    }
+
+    private static int take(int prev, int i, int[] A, int len,int[][] mem) {
+
+        if(i==A.length){
+            return len;
+        }
+
+        if(prev!=-1 && mem[prev][i]!=0){
+            return mem[prev][i];
+        }
+
+        int x = 0;
+        if(prev==-1 || A[i]>A[prev]){
+            x = take(A[i],i+1,A,len+1,mem);
+        }
+
+        int y = take(prev,i+1,A,len,mem);
+
+
+        mem[prev][i] = Math.max(x,y);
+        return mem[prev][i];
+
 
     }
 
