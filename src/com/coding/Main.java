@@ -24,7 +24,8 @@ public class Main {
             String mStr = scanner.nextLine();
             String nStr = scanner.nextLine();
 
-            System.out.println(minEdit(m,n,mStr,nStr));
+            int[][] mem = new int[m+1][n+1];
+            System.out.println(minEdit(m,n,mStr,nStr,mem));
 
 
         }
@@ -32,7 +33,9 @@ public class Main {
 
     }
 
-    private static int minEdit(int m, int n, String mStr, String nStr) {
+    private static int minEdit(int m, int n, String mStr, String nStr, int[][] mem) {
+
+
 
     }
 
