@@ -19,13 +19,12 @@ public class Pattern {
 
 
             int[] A = new int[n];
-
             for (int i = 0; i < A.length; i++) {
                 A[i] = scanner.nextInt();
             }
 
             int[] mem = new int[n];
-            System.out.println(jumps(0,A,mem,0));
+            System.out.println(jumps(0,A,mem));
 
 
             System.out.println(Arrays.toString(mem));
@@ -40,14 +39,15 @@ public class Pattern {
 
     }
 
-    private static int jumps(int index, int[] A, int[] mem,int jump) {
+    private static int jumps(int index, int[] A, int[] mem) {
 
-        if(index>A.length){
+
+
+        if(index==A.length-1)
+            return 0;
+
+        if(index>=A.length)
             return -1;
-        }
-
-        if(index==A.length)
-            return jump;
 
         if(A[index]==0){
             return -1;
@@ -56,21 +56,30 @@ public class Pattern {
         if(mem[index]!=0)
             return mem[index];
 
-        int min = Integer.MAX_VALUE;
-        for (int i = 1; i <=A[i] ; i++) {
-            int y = jumps(index+i,A,mem,jump+1);
+        int min = Integer.MAX_VALUE,max = -1;
+        for (int i = 1; i <=A[index] ; i++) {
 
-            if(y==-1)
+            int y = 1+ jumps(index+i,A,mem);
+
+            max = Math.max(max,y);
+            if(y==0)
                 continue;
 
+            min = Math.min(y,min);;
 
-            min = Math.min(y,min);
+
+
+        }
+
+        if(max==0){
+            mem[index] = -1;
+            return -1;
+        }else {
+            mem[index] = min;
+            return min;
         }
 
 
-        mem[index] = min;
-
-        return min;
 
     }
 
