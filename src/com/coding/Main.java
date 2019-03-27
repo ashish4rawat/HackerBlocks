@@ -19,23 +19,14 @@ public class Main {
 
 
 
-            int n = scanner.nextInt();
-
-            int count = 0,a =1;
-            while (n!=0){
-
-                if( (n & a)  == 1 ){
-                    break;
-                }
-                n = n>>1;
-                count++;
-
-            }
+            long n = scanner.nextLong();
 
             if(n==0){
-                System.out.println(0);
+                System.out.println("NO");
+            }else if( (n & (n-1)) == 0 ){
+                System.out.println("YES");
             }else {
-                System.out.println(count+1);
+                System.out.println("NO");
             }
 
 
