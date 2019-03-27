@@ -1,6 +1,7 @@
 package com.coding;
 
 import java.util.*;
+import java.util.LinkedList;
 
 public class Main {
 
@@ -15,17 +16,28 @@ public class Main {
         for (int h = 0; h <t ; h++) {
 
 
-            int m= scanner.nextInt();
 
 
 
             int n = scanner.nextInt();
 
-            String mStr = scanner.nextLine();
-            String nStr = scanner.nextLine();
+            int count = 0,a =1;
+            while (n!=0){
 
-            int[][] mem = new int[m+1][n+1];
-            System.out.println(minEdit(m,n,mStr,nStr,mem));
+                if( (n & a)  == 1 ){
+                    break;
+                }
+                n = n>>1;
+                count++;
+
+            }
+
+            if(n==0){
+                System.out.println(0);
+            }else {
+                System.out.println(count+1);
+            }
+
 
 
         }
@@ -33,11 +45,51 @@ public class Main {
 
     }
 
-    private static int minEdit(int m, int n, String mStr, String nStr, int[][] mem) {
+    private static boolean minEdit(int m, int n, String mStr, String nStr, int[][] mem) {
+        return true;
+    }
+
+
+    public void DFS(int v, LinkedList<Integer> adj[], boolean visited[])
+    {
+        // add code here.
+
+
+        System.out.println(adj[v].get(0));
+        System.out.println(adj[v].get(1));
+
+
+        System.out.print(v+" ");
+
+        visited[v] = true;
+
+        while (!adj[v].isEmpty()){
+            if(!visited[adj[v].getFirst()])
+            {
+                DFS(adj[v].getFirst(),adj,visited);
+                adj[v].removeFirst();
+            }
+
+
+
+        }
+
+        LinkedList<Integer> edges = adj[v];
+        if(edges != null) {
+            for(Integer edge : edges) {
+                if(!visited[edge]) {
+                    DFS(edge, adj, visited);
+                }
+            }
+        }
+
+
 
 
 
     }
+
+
 
     private static int minSum(int i, int sum, int k, int[] A, int[][] mem) {
 
