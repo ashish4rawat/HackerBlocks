@@ -1,59 +1,64 @@
 package com.coding;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 import java.util.LinkedList;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 	// write your code here
 
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        int t=Integer.parseInt(br.readLine());
+
+        while(t-->0)
+        {
+
+            int n=Integer.parseInt(br.readLine());
+            String str[]=br.readLine().trim().split(" ");
+            int A[]=new int[n];
 
 
-        Scanner scanner = new Scanner(System.in);
-        String T = scanner.nextLine();
-        int t = Integer.parseInt(T);
-        for (int h = 0; h <t ; h++) {
-
-
-
-
-            int n = scanner.nextInt();
-            int[] A = new int[n];
 
             int prev = -1;
             int div = -1;
             for (int i = 0; i <n ; i++) {
-                A[i] = scanner.nextInt();
+                A[i] = Integer.parseInt(str[i]);
 
                 if(i>0 && prev>A[i]){
-                    div = A[i];
+                    div = i;
                 }
 
                 prev = A[i];
             }
 
-            int find = scanner.nextInt();
+            int find = Integer.parseInt(br.readLine());
 
             int x = search(0,div,find,A);
             int y = search(div,n,find,A);
 
 
+            //System.out.println(x);
+
             int sdf = x==-1? y : x;
             System.out.println(sdf);
 
 
-
-
-
         }
+
+
+
+
 
 
     }
 
     private static int search(int l, int r,int find, int[] A) {
 
-        if(l>r)
+        if(l>=r)
             return -1;
 
         int m = (l+r)/2;
