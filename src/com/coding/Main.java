@@ -18,19 +18,52 @@ public class Main {
 
 
 
+            int n = scanner.nextInt();
+            int[] A = new int[n];
 
-            long n = scanner.nextLong();
+            int prev = -1;
+            int div = -1;
+            for (int i = 0; i <n ; i++) {
+                A[i] = scanner.nextInt();
 
-            if(n==0){
-                System.out.println("NO");
-            }else if( (n & (n-1)) == 0 ){
-                System.out.println("YES");
-            }else {
-                System.out.println("NO");
+                if(i>0 && prev>A[i]){
+                    div = A[i];
+                }
+
+                prev = A[i];
             }
 
+            int find = scanner.nextInt();
+
+            int x = search(0,div,find,A);
+            int y = search(div,n,find,A);
 
 
+            int sdf = x==-1? y : x;
+            System.out.println(sdf);
+
+
+
+
+
+        }
+
+
+    }
+
+    private static int search(int l, int r,int find, int[] A) {
+
+        if(l>r)
+            return -1;
+
+        int m = (l+r)/2;
+
+        if(A[m]==find){
+            return m;
+        }else if(find<A[m]){
+            return search( l , m ,find,A);
+        }else {
+            return search( m+1 , r ,find,A  );
         }
 
 
