@@ -4,66 +4,105 @@ import java.util.*;
 
 public class LinkedList {
 
+    static int getMaxArea(int hist[], int n)
+    {
+        // Create an empty stack. The stack holds indexes of hist[] array
+        // The bars stored in stack are always in increasing order of their
+        // heights.
+        Stack<Integer> s = new Stack<>();
+
+        int max_area = 0; // Initialize max area
+        int tp;  // To store top of stack
+        int area_with_top; // To store area with top bar as the smallest bar
+
+        // Run through all bars of given histogram
+        int i = 0;
+        while (i < n)
+        {
+            // If this bar is higher than the bar on top stack, push it to stack
+            if (s.empty() || hist[s.peek()] <= hist[i])
+                s.push(i++);
+
+                // If this bar is lower than top of stack, then calculate area of rectangle
+                // with stack top as the smallest (or minimum height) bar. 'i' is
+                // 'right index' for the top and element before top in stack is 'left index'
+            else
+            {
+                tp = s.peek();  // store the top index
+                s.pop();  // pop the top
+
+                // Calculate the area with hist[tp] stack as smallest bar
+                area_with_top = hist[tp] * (s.empty() ? i : i - s.peek() - 1);
+
+                // update max area, if needed
+                if (max_area < area_with_top)
+                    max_area = area_with_top;
+            }
+        }
+
+        // Now pop the remaining bars from stack and calculate area with every
+        // popped bar as the smallest bar
+        while (s.empty() == false)
+        {
+            tp = s.peek();
+            s.pop();
+            area_with_top = hist[tp] * (s.empty() ? i : i - s.peek() - 1);
+
+            if (max_area < area_with_top)
+                max_area = area_with_top;
+        }
+
+        return max_area;
+
+    }
+
+
+
     public static void main(String[] args) {
         // write your code here
+
 
 
 
         Scanner scanner = new Scanner(System.in);
         String T = scanner.nextLine();
         int t = Integer.parseInt(T);
-        for (int h = 0; h <t ; h++) {
+        for (int yy = 0; yy <t ; yy++) {
 
             int n= scanner.nextInt();
-
 
 
             int[] A = new int[n];
 
             for (int i = 0; i < A.length; i++) {
                 A[i] = scanner.nextInt();
+
             }
-            int k = scanner.nextInt();
-
-            int[][] mem = new int[A.length][k+1];
 
 
-            System.out.println(ways(k,0,A,mem,""));
+            System.out.println(getMaxArea(A,A.length));
 
 
 
 
 
         }
+
 
 
 
     }
 
-    private static int ways(int n, int i , int[] A,int[][] mem,String s) {
-
-        if(n==0){
-            //System.out.println(s);
-            return 1;
-        }
-
-        if(i==A.length)
-            return 0;
-
-        if(mem[i][n]!=0)
-            return mem[i][n];
 
 
-        int sum = 0;
-        if(A[i]<=n){
-            sum += ways(n-A[i] ,i, A,mem,s+A[i]+", ");
-        }
 
-        sum += ways(n,i+1,A,mem,s);
-
-        mem[i][n] = sum;
-        return sum;
+    private static void swap(int i, int j, int[] a) {
+        int temp = a[j];
+        a[j] = a[i];
+        a[i] = temp;
     }
+
+
 
 
 }

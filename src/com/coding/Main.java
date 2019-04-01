@@ -14,6 +14,8 @@ public class Main {
         BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
         int t=Integer.parseInt(br.readLine());
 
+
+
         while(t-->0)
         {
 
@@ -40,10 +42,11 @@ public class Main {
                 if( sum<0){
                     l++;
                 }else {
-                    r++;
+                    r--;
                 }
 
             }
+
 
 
 

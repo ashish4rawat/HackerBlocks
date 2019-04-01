@@ -15,9 +15,16 @@ public class Pattern {
         for (int h = 0; h <t ; h++) {
 
             int n= scanner.nextInt();
+            int i = 2;
 
-            int[][] mem = new int[n+1][3];
-            System.out.println(ways(n,2,mem));
+            while (i<=n/2){
+                if(isPrime(i) && isPrime(n-i)){
+                    System.out.println(i+" "+(n-i));
+                    break;
+                }
+                i++;
+
+            }
 
 
 
@@ -25,6 +32,17 @@ public class Pattern {
 
 
     }
+
+    private static boolean isPrime(int n) {
+
+        for (int i = 2; i*i <= n; i++) {
+            if(n%i==0)
+                return false;
+        }
+        return true;
+    }
+
+
 
     private static int ways(int n, int prev, int[][] mem) {
 
