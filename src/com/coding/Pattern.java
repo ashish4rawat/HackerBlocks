@@ -1,5 +1,7 @@
 package com.coding;
 
+import javafx.scene.control.Alert;
+
 import java.util.*;
 
 public class Pattern {
@@ -21,12 +23,30 @@ public class Pattern {
             }
 
 
-            int x = findMin(0,A.length,A);
-            System.out.println(A[x]);
+            int lastZero = -1;
+            for (int i = 0; i < A.length; i++) {
 
+                if(A[i]!=0 && lastZero!=-1){
+                    swap(i,lastZero,A);
+                    lastZero++;
+                }else if(lastZero==-1 && A[i]==0){
+                    lastZero=i;
+                }
+
+            }
+
+            for (int i = 0; i < A.length; i++) {
+                System.out.print(A[i]+" ");
+            }
         }
 
 
+    }
+
+    private static void swap(int i, int lastZero, int[] a) {
+        int tem = a[i];
+        a[i] = a[lastZero];
+        a[lastZero] = tem;
     }
 
     public static int findMin(int l,int r,int[] A){
