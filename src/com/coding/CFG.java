@@ -21,45 +21,58 @@ import java.util.*;
 class Node
 {
     int data;
-    Node next;
+    Node left, right;
     Node(int key)
     {
         data = key;
-        next = null;
+        left = right = null;
     }
 }
-
 class GfG
 {
-    public static Node reverse(Node node, int k)
+
+    public static Node construcTree(int A[], int n)
     {
+
+        Node root =null;
         //Your code here
-        if(node==null)
-            return null;
-
-        Node head = node;
 
 
 
-        Node pre = null;
-        Node cur = node,post;
-        int count = k;
-        while (cur!=null && count!=0){
+        HashMap<Integer,Node> map = new HashMap<>();
 
-            post = cur.next;
-            cur.next = pre;
-            pre = cur;
-            cur = post;
+        for (int i = 0; i < A.length; i++) {
+            Node node = new Node(i);
+            map.put(i,node);
 
-            --count;
+            if(A[i]==-1){
+                root=node;
+            }
         }
 
-        head.next = reverse(cur,k);
-        return pre;
+        for (int i = 1; i < A.length; i++) {
+
+
+            add(map.get(A[i]),map.get(i));
+
+
+
+        }
+
+        return root;
 
     }
-}
 
+    private static void add(Node node, Node child) {
+        if(node.left==null)
+            node.left = child;
+        else
+            node.right = child;
+
+
+    }
+
+}
 
 
 

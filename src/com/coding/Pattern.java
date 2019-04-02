@@ -15,21 +15,34 @@ public class Pattern {
         for (int h = 0; h <t ; h++) {
 
             int n= scanner.nextInt();
-            int i = 2;
-
-            while (i<=n/2){
-                if(isPrime(i) && isPrime(n-i)){
-                    System.out.println(i+" "+(n-i));
-                    break;
-                }
-                i++;
-
+            int A[] = new int[n];
+            for (int i = 0; i <n ; i++) {
+                A[i] = scanner.nextInt();
             }
 
 
+            int x = findMin(0,A.length,A);
+            System.out.println(A[x]);
 
         }
 
+
+    }
+
+    public static int findMin(int l,int r,int[] A){
+
+        if(A[l]<=A[r-1] )
+            return l;
+        else {
+            int mid = (l+r)/2;
+            int a = findMin(l,mid,A);
+            int b = findMin(mid,r,A);
+            if(A[a]<A[b])
+                return a;
+            else
+                return b;
+
+        }
 
     }
 
