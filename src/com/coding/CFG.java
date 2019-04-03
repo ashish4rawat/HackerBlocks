@@ -18,62 +18,45 @@ import java.io.*;
 import java.util.*;
 
 
-class Node
+class TreeNode
 {
     int data;
-    Node left, right;
-    Node(int key)
+    TreeNode left, right;
+    public TreeNode(int data)
     {
-        data = key;
+        this.data = data;
         left = right = null;
     }
 }
-class GfG
-{
-
-    public static Node construcTree(int A[], int n)
-    {
-
-        Node root =null;
-        //Your code here
 
 
 
-        HashMap<Integer,Node> map = new HashMap<>();
+class GfG{
 
-        for (int i = 0; i < A.length; i++) {
-            Node node = new Node(i);
-            map.put(i,node);
-
-            if(A[i]==-1){
-                root=node;
-            }
-        }
-
-        for (int i = 1; i < A.length; i++) {
+    int maxDepth = -1;
 
 
-            add(map.get(A[i]),map.get(i));
+    void rightView(TreeNode node) {
+        //add code here.
 
-
-
-        }
-
-        return root;
+        rightView(node,-1);
 
     }
 
-    private static void add(Node node, Node child) {
-        if(node.left==null)
-            node.left = child;
-        else
-            node.right = child;
+    private void rightView(TreeNode node, int curDepth) {
 
+        if(node==null) return;
+
+        if(curDepth>maxDepth){
+            System.out.print(node.data+" ");
+            maxDepth = curDepth;
+        }
+
+        rightView(node.right,curDepth+1);
+        rightView(node.left,curDepth+1);
 
     }
-
 }
-
 
 
 
