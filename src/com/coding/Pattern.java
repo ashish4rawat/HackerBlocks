@@ -23,30 +23,23 @@ public class Pattern {
                 A[i] = scanner.nextInt();
             }
 
-            int co=0;
+            int[] mem = new int[n];
+            int gmax = 1;
 
-            int min=-1,max=-1;
-            for (int i = 0; i < A.length; i++) {
+            for (int i = 0; i <A.length ; i++)
+                mem[i] = 1;
 
-                if(min==-1){
-                    if(i+1<A.length && A[i]<A[i+1])
-                        min=i;
-                }else if(max==-1){
-                    if( (i+1<A.length && A[i]>A[i+1]) || (i==A.length-1) ){
-                        max=i;
+            for (int i = 1; i <A.length ; i++) {
 
-                        System.out.print("("+ min+" "+max +") ");
-                        min=-1;
-                        max=-1;
-                        ++co;
+                for (int j = 0; j <i ; j++) {
+                    if(A[j]<A[i]){
+                        mem[i] = Math.max(mem[i] , 1+mem[j]);
                     }
                 }
+                gmax = Math.max(gmax,mem[i]);
+
             }
-            if(co==0)
-                System.out.print("No Profit");
-
-            System.out.println();
-
+            System.out.println(gmax);
 
 
 
