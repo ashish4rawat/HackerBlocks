@@ -17,32 +17,80 @@ public class Pattern {
         for (int h = 0; h <t ; h++) {
 
             int n= scanner.nextInt();
+
             int A[] = new int[n];
             for (int i = 0; i <n ; i++) {
                 A[i] = scanner.nextInt();
             }
 
+            int co=0;
 
-            int lastZero = -1;
+            int min=-1,max=-1;
             for (int i = 0; i < A.length; i++) {
 
-                if(A[i]!=0 && lastZero!=-1){
-                    swap(i,lastZero,A);
-                    lastZero++;
-                }else if(lastZero==-1 && A[i]==0){
-                    lastZero=i;
+                if(min==-1){
+                    if(i+1<A.length && A[i]<A[i+1])
+                        min=i;
+                }else if(max==-1){
+                    if( (i+1<A.length && A[i]>A[i+1]) || (i==A.length-1) ){
+                        max=i;
+
+                        System.out.print("("+ min+" "+max +") ");
+                        min=-1;
+                        max=-1;
+                        ++co;
+                    }
                 }
-
             }
-
-            for (int i = 0; i < A.length; i++) {
-                System.out.print(A[i]+" ");
-            }
+            if(co==0)
+                System.out.print("No Profit");
 
             System.out.println();
+
+
+
+
         }
 
 
+    }
+
+    private static int search(int[] a, int l, int r,int x) {
+        for (int i = 0; i <a.length ; i++) {
+            if(i==l||i==r)
+                continue;
+            if(a[i]==x)
+                return i;
+
+        }
+        return -1;
+    }
+
+
+    static int binarySearch(int arr[], int l, int r, int x)
+    {
+        if (r>=l)
+        {
+            int mid = l + (r - l)/2;
+
+            // If the element is present at the
+            // middle itself
+            if (arr[mid] == x)
+                return mid;
+
+            // If element is smaller than mid, then
+            // it can only be present in left subarray
+            if (arr[mid] > x)
+                return binarySearch(arr, l, mid-1, x);
+
+            // Else the element can only be present
+            // in right subarray
+            return binarySearch(arr, mid+1, r, x);
+        }
+
+        // We reach here when element is not present
+        //  in array
+        return -1;
     }
 
     private static void swap(int i, int lastZero, int[] a) {
