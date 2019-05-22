@@ -11,35 +11,41 @@ public class Pattern {
 
 
 
-        Scanner scanner = new Scanner(System.in);
-        String T = scanner.nextLine();
-        int t = Integer.parseInt(T);
-        for (int h = 0; h <t ; h++) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        while(t-->0){
+            int n = sc.nextInt();
+            int m = sc.nextInt();
 
-            int n= scanner.nextInt();
 
-            int A[] = new int[n];
-            for (int i = 0; i <n ; i++) {
-                A[i] = scanner.nextInt();
-            }
-
-            int[] mem = new int[n];
-            int gmax = 1;
-
-            for (int i = 0; i <A.length ; i++)
-                mem[i] = 1;
-
-            for (int i = 1; i <A.length ; i++) {
-
-                for (int j = 0; j <i ; j++) {
-                    if(A[j]<A[i]){
-                        mem[i] = Math.max(mem[i] , 1+mem[j]);
-                    }
+            int[][] a = new int[n][m];
+            for(int i=0;i<n;i++){
+                for(int j=0;j<m;j++) {
+                    a[i][j] = sc.nextInt();
                 }
-                gmax = Math.max(gmax,mem[i]);
-
             }
-            System.out.println(gmax);
+            int x = sc.nextInt();
+
+            int flag = 0;
+            int i = 0,j=m-1;
+            while (i<n && j>=0  ){
+                if(x==a[i][j]){
+                    System.out.println("1");
+                    flag = 1;
+                    break;
+                }
+
+                if(x<a[i][j]){
+                    j--;
+
+                }else {
+                    i++;
+                }
+            }
+
+            if (flag==0)
+                System.out.println("0");
+
 
 
 

@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a19b924-0871-4794-87f9-a8e2b7c2445a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hackerblocks/com/coding/Pattern.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hackerblocks/com/coding/Pattern.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/coding/Pattern.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/coding/Pattern.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -25,8 +27,8 @@
     <session id="-29776109">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="44" />
-          <entry key="project.open.time.10" value="5" />
+          <entry key="project.closed" value="47" />
+          <entry key="project.open.time.10" value="6" />
           <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.13" value="2" />
           <entry key="project.open.time.14" value="2" />
@@ -34,21 +36,21 @@
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="7" />
-          <entry key="project.open.time.6" value="9" />
+          <entry key="project.open.time.6" value="10" />
           <entry key="project.open.time.7" value="3" />
-          <entry key="project.open.time.8" value="7" />
+          <entry key="project.open.time.8" value="8" />
           <entry key="project.open.time.9" value="7" />
-          <entry key="project.opened" value="47" />
+          <entry key="project.opened" value="50" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="20079" />
+          <entry key="java" value="20322" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="20079" />
+          <entry key="JAVA" value="20322" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -68,8 +70,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/coding/Pattern.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="34" column="57" selection-start-line="34" selection-start-column="57" selection-end-line="34" selection-end-column="57" />
+            <state relative-caret-position="306">
+              <caret line="39" column="24" lean-forward="true" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -133,7 +135,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="85" />
     <option name="y" value="25" />
     <option name="width" value="1750" />
@@ -145,7 +147,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -180,12 +182,12 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/ashish/IdeaProjects/CBJava/MyCode/Hackerblocks/src/com/coding/LinkedList.java&#10;ter&#9;ACTION&#9;ActivateTerminalToolWindow" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554393480476" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558508009031" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
@@ -312,7 +314,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31275168" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -321,12 +323,12 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.2917847" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.2917847" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3696884" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49798658" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49798658" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50201344" side_tool="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3286119" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3286119" />
@@ -368,8 +370,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/coding/Pattern.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="34" column="57" selection-start-line="34" selection-start-column="57" selection-end-line="34" selection-end-column="57" />
+        <state relative-caret-position="306">
+          <caret line="39" column="24" lean-forward="true" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
