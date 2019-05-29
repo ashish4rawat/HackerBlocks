@@ -13,7 +13,7 @@ public class Pattern {
 
         Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
-        while(t-->0){
+        while(t-->0)    {
             int n = sc.nextInt();
             int m = sc.nextInt();
 
@@ -50,6 +50,38 @@ public class Pattern {
 
 
         }
+
+
+    }
+
+    class Node
+    {
+        int data;
+        Node left, right;
+        Node(int item)
+        {
+            data = item;
+            left = right = null;
+        }
+    }
+
+    void printSibling(Node node)
+    {
+        // Your code here
+        if(node==null){
+            return;
+        }
+
+        if(node.left==null && node.right!=null){
+            System.out.print(node.right.data+" ");
+        }
+
+        if(node.left!=null && node.right==null){
+            System.out.print(node.left.data+" ");
+        }
+
+        printSibling(node.left);
+        printSibling(node.right);
 
 
     }
