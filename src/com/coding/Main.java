@@ -1,72 +1,69 @@
 package com.coding;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
+
 import java.util.*;
-import java.util.LinkedList;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
-	// write your code here
 
-        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
-        int t=Integer.parseInt(br.readLine());
+    public static void main(String[] args)  {
+        // write your code here
 
 
+        ArrayList<MyData> list = new ArrayList<>();
+        list.add(new MyData(1998,12,21));
+        list.add(new MyData(1998,12,11));
+        list.add(new MyData(2000,1,21));
+        list.add(new MyData(1995,3,21));
+        list.add(new MyData(1998,5,11));
 
-        while(t-->0)
-        {
-
-            int n=Integer.parseInt(br.readLine());
-            String str[]=br.readLine().trim().split(" ");
-            int A[]=new int[n];
-
-
-            for (int i = 0; i <n ; i++) {
-                A[i] = Integer.parseInt(str[i]);
-            }
-
-            Arrays.sort(A);
-            int l = 0,r = A.length-1;
-
-            int minSum = Integer.MAX_VALUE;
-            while (l<r){
-                int sum = A[l] + A[r];
-
-                if( Math.abs(sum) < Math.abs(minSum) ){
-                    minSum = sum;
-                }
-
-                if( sum<0){
-                    l++;
-                }else {
-                    r--;
-                }
-
-            }
+        Collections.sort(list);
 
 
-
-
-
-
-            System.out.println(minSum);
-
-
+        for (int i = 0; i <list.size() ; i++) {
+            System.out.println(list.get(i));
         }
 
+    }
+}
 
+class MyData implements Comparable<MyData>{
+    int date,month,year ;
 
-
-
-
+    public MyData(int year, int month, int date) {
+        this.date = date;
+        this.month = month;
+        this.year = year;
     }
 
+    @Override
+    public String toString() {
+        return "MyData{" +
+                "date=" + date +
+                ", month=" + month +
+                ", year=" + year +
+                '}';
+    }
 
+    @Override
+    public int compareTo(MyData myDate) {
 
+        int x = this.year - myDate.year ;
+        if(x==0){
+            x = this.month - myDate.month;
+            if(x==0){
+                x = this.date = myDate.date;
+                return x;
+            }else {
+                return x;
+            }
 
+        }else {
+            return x;
+        }
+
+    }
 }
 
 

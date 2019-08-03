@@ -13,7 +13,7 @@ public class LinkedList {
 
         int max_area = 0; // Initialize max area
         int tp;  // To store top of stack
-        int area_with_top; // To store area with top bar as the smallest bar
+        int area_with_top; // To store area with tcvop bar as the smallest bar
 
         // Run through all bars of given histogram
         int i = 0;
