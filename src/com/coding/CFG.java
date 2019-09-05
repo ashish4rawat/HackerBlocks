@@ -31,36 +31,6 @@ class TreeNode
 
 
 
-class GfG{
-
-    int maxDepth = -1;
-
-
-    void rightView(TreeNode node) {
-        //add code here.
-
-        rightView(node,-1);
-
-    }
-
-    private void rightView(TreeNode node, int curDepth) {
-
-        if(node==null) return;
-
-        if(curDepth>maxDepth){
-            System.out.print(node.data+" ");
-            maxDepth = curDepth;
-        }
-
-        rightView(node.right,curDepth+1);
-        rightView(node.left,curDepth+1);
-
-    }
-}
-
-
-
-
 
 
 
