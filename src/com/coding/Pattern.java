@@ -8,45 +8,64 @@ public class Pattern {
     public static void main(String[] args) {
         // write your code here
 
-        /*Scanner s  = new Scanner(System.in);
+        Scanner s  = new Scanner(System.in);
         int t = s.nextInt();
         while (t-->0){
 
-            int n = s.nextInt();
-            int[] A = new int[n];
-            for (int i = 0; i <n ; i++) {
-                A[i] = s.nextInt();
+            int x = s.nextInt();
+            int[] A = new int[x];
+
+            ArrayList<Integer> list = new ArrayList<>();
+            HashMap<Integer,Integer> map = new HashMap<>();
+
+            for (int i = 0; i <x ; i++) {
+                int xfd = s.nextInt();
+                list.add(xfd);
+                if(map.containsKey(xfd)){
+                    map.put( xfd,map.get(xfd)+1 );
+                }else {
+                    map.put(xfd,1);
+                }
+
             }
 
 
 
 
 
+
+            Collections.sort(list,new Comparator<Integer>(){
+                public int compare(Integer o1,Integer o2){
+
+                    int x = map.get(o2).compareTo(map.get(o1));
+                    if(x!=0) return x;
+
+
+
+                    return o1.compareTo(o2);
+                }
+            });
+
+            for (int n:list){
+                System.out.print(n+" ");
+            }
+
+            System.out.println();
+
+
         }
-*/
 
 
-        //printpa();
-
-        ArrayList<ArrayList<Integer>> list = new ArrayList<>();
-
-        ArrayList<Integer> list1 = new ArrayList<>();
-        list1.addAll( Arrays.asList(1,1,0));
-        ArrayList<Integer> list2 = new ArrayList<>();
-        list2.addAll(Arrays.asList(0,0,1));
-
-        ArrayList<Integer> list3 = new ArrayList<>();
-        list3.addAll( Arrays.asList(1,0,1));
-
-        list.add(list1);
-        list.add(list2);
-        list.add(list3);
 
 
-        findIslands(list,0,0);
+
+
 
 
     }
+
+
+
 
     private static void printpa() {
 
@@ -114,6 +133,36 @@ public class Pattern {
         }
 
     }
+
+
+    static void dfs(int src, ArrayList<ArrayList<Integer>> list, boolean vis[])
+    {
+        // add your code here
+        System.out.println(src);
+        vis[src] = true;
+
+
+        for (int i = 0; i < list.get(src).size(); i++) {
+
+            int  x = list.get(src).get(i);
+            if( !vis[x] )
+                dfs(x,list,vis);
+
+        }
+
+
+
+    }
+
+
+    static void bfs(int s, ArrayList<ArrayList<Integer>> list, boolean vis[], int nov)
+    {
+        // add your code here
+
+
+    }
+
+
 
 }
 
